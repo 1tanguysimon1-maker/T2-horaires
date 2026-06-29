@@ -1,0 +1,27 @@
+name: Fetch T2 Porte de Versailles
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+  workflow_dispatch:
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch IDFM & transform
+        run: |
+          curl -s -X GET \
+            'https://prim.iledefrance-mobilites.fr/marketplace/stop-monitoring?MonitoringRef=STIF%3AStopArea%3ASP%3A25633%3A&LineRef=STIF%3ALine%3A%3AC01390%3A' \
+            -H 'accept: application/json' \
+            -H 'apikey: ${{ secrets.IDFM_API_KEY }}' \
+          | python3 parse.py > t2.json
+
+      - name: Commit & push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add t2.json
+          git diff --cached --quiet || git commit -m "chore: update t2 departures" && git push
