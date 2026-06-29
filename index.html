@@ -8,63 +8,161 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       width: 800px; height: 480px;
-      background: #0a0a0a;
+      background: #ffffff;
       font-family: Arial, sans-serif;
-      color: #fff;
+      color: #111;
       overflow: hidden;
     }
-    .header {
-      display: flex; align-items: center;
-      background: #1a1a1a;
-      border-bottom: 3px solid #6E1E78;
-      padding: 12px 24px; height: 80px; gap: 20px;
+
+    /* BARRE SUPERIEURE VIOLETTE */
+    .top-bar {
+      background: #6E1E78;
+      height: 12px;
     }
-    .logo-t2 { width: 58px; height: 58px; flex-shrink: 0; }
+
+    /* HEADER */
+    .header {
+      display: flex;
+      align-items: center;
+      background: #ffffff;
+      padding: 10px 24px;
+      height: 80px;
+      gap: 20px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    /* LOGO T2 officiel : fond blanc, barres violettes haut/bas, texte violet */
+    .logo-t2 {
+      width: 60px;
+      height: 60px;
+      flex-shrink: 0;
+    }
+
     .header-text { flex: 1; }
-    .header-title { font-size: 13px; color: #aaa; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 4px; }
-    .header-station { font-size: 26px; font-weight: bold; color: #fff; }
-    .header-updated { font-size: 12px; color: #666; text-align: right; align-self: flex-end; }
+    .header-title {
+      font-size: 12px;
+      color: #888;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 3px;
+    }
+    .header-station {
+      font-size: 28px;
+      font-weight: bold;
+      color: #111;
+    }
+    .header-updated {
+      font-size: 11px;
+      color: #aaa;
+      text-align: right;
+      align-self: flex-end;
+    }
+
+    /* BARRE DIRECTION */
     .destination-bar {
       background: #6E1E78;
-      padding: 8px 24px; font-size: 13px;
-      letter-spacing: 3px; text-transform: uppercase;
-      font-weight: bold; display: flex; align-items: center; gap: 10px;
+      padding: 9px 24px;
+      font-size: 13px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-weight: bold;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 12px;
     }
-    .destination-bar::before { content: '▶'; font-size: 10px; }
+    .destination-bar::before { content: '▶'; font-size: 9px; }
+
+    /* EN-TÊTE TABLEAU */
     .table-header {
-      display: grid; grid-template-columns: 1fr 180px 160px;
-      padding: 10px 24px; background: #222;
-      border-bottom: 1px solid #333;
-      font-size: 12px; color: #888; letter-spacing: 2px; text-transform: uppercase;
+      display: grid;
+      grid-template-columns: 1fr 200px 160px;
+      padding: 8px 24px;
+      background: #f5f5f5;
+      border-bottom: 1px solid #e0e0e0;
+      font-size: 11px;
+      color: #999;
+      letter-spacing: 2px;
+      text-transform: uppercase;
     }
+
+    /* LIGNES DE DÉPARTS */
     .departures { padding: 0 24px; }
+
     .departure-row {
-      display: grid; grid-template-columns: 1fr 180px 160px;
-      align-items: center; height: 80px;
-      border-bottom: 1px solid #1e1e1e;
+      display: grid;
+      grid-template-columns: 1fr 200px 160px;
+      align-items: center;
+      height: 76px;
+      border-bottom: 1px solid #eeeeee;
     }
     .departure-row:last-child { border-bottom: none; }
-    .dep-destination { font-size: 22px; font-weight: bold; }
-    .dep-time { font-size: 36px; font-weight: bold; color: #f5c518; font-variant-numeric: tabular-nums; letter-spacing: 2px; }
-    .dep-minutes { display: flex; align-items: baseline; gap: 6px; }
-    .dep-minutes-num { font-size: 42px; font-weight: bold; color: #00c853; font-variant-numeric: tabular-nums; }
-    .dep-minutes-num.urgent { color: #e3051b; }
-    .dep-minutes-unit { font-size: 16px; color: #888; }
-    .footer {
-      position: absolute; bottom: 0; left: 0; right: 0;
-      background: #111; border-top: 1px solid #222;
-      padding: 8px 24px; display: flex;
-      justify-content: space-between; align-items: center; height: 36px;
+
+    .dep-destination {
+      font-size: 22px;
+      font-weight: bold;
+      color: #111;
     }
-    .footer span { font-size: 11px; color: #444; }
-    .status-msg { display: flex; align-items: center; justify-content: center; height: 200px; font-size: 18px; color: #555; }
+
+    .dep-time {
+      font-size: 38px;
+      font-weight: bold;
+      color: #6E1E78;
+      font-variant-numeric: tabular-nums;
+      letter-spacing: 2px;
+    }
+
+    .dep-minutes {
+      display: flex;
+      align-items: baseline;
+      gap: 5px;
+    }
+    .dep-minutes-num {
+      font-size: 44px;
+      font-weight: bold;
+      color: #2e7d32;
+      font-variant-numeric: tabular-nums;
+    }
+    .dep-minutes-num.urgent { color: #c62828; }
+    .dep-minutes-unit { font-size: 15px; color: #999; }
+
+    /* FOOTER / BARRE INFÉRIEURE */
+    .bottom-bar {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: #6E1E78;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+    }
+    .bottom-bar span { font-size: 11px; color: rgba(255,255,255,0.6); letter-spacing: 1px; }
+
+    .status-msg {
+      display: flex; align-items: center; justify-content: center;
+      height: 200px; font-size: 18px; color: #bbb;
+    }
   </style>
 </head>
 <body>
+
+  <!-- BARRE VIOLETTE SUPÉRIEURE -->
+  <div class="top-bar"></div>
+
+  <!-- HEADER -->
   <div class="header">
-    <img class="logo-t2"
-      src="https://upload.wikimedia.org/wikipedia/commons/f/f4/Paris_transit_icons_-_Tram_2.svg"
-      alt="T2" onerror="this.style.display='none'">
+    <!-- Logo T2 officiel IdFM : fond blanc, bandes violettes haut/bas, T2 violet -->
+    <svg class="logo-t2" viewBox="0 0 250 250" xmlns="http://www.w3.org/2000/svg">
+      <rect width="250" height="250" fill="#ffffff" rx="12" ry="12"/>
+      <rect y="0" width="250" height="42" fill="#6E1E78" rx="12" ry="12"/>
+      <rect y="0" width="250" height="30" fill="#6E1E78"/>
+      <rect y="208" width="250" height="42" fill="#6E1E78" rx="12" ry="12"/>
+      <rect y="220" width="250" height="30" fill="#6E1E78"/>
+      <text x="125" y="178" font-family="Arial" font-weight="bold" font-size="140"
+            fill="#000000" text-anchor="middle">T2</text>
+    </svg>
+
     <div class="header-text">
       <div class="header-title">Tramway ligne 2 — Prochains départs</div>
       <div class="header-station">Porte de Versailles</div>
@@ -72,19 +170,23 @@
     <div class="header-updated" id="updated">—</div>
   </div>
 
+  <!-- BARRE DIRECTION -->
   <div class="destination-bar">Direction Pont de Bezons</div>
 
+  <!-- EN-TÊTE TABLEAU -->
   <div class="table-header">
     <span>Destination</span>
     <span>Heure</span>
     <span>Attente</span>
   </div>
 
+  <!-- DÉPARTS -->
   <div class="departures" id="departures">
     <div class="status-msg">Chargement…</div>
   </div>
 
-  <div class="footer">
+  <!-- BARRE VIOLETTE INFÉRIEURE -->
+  <div class="bottom-bar">
     <span>RATP · Île-de-France Mobilités</span>
     <span>Données temps réel IDFM PRIM</span>
   </div>
@@ -97,7 +199,6 @@
         const res = await fetch(JSON_URL + '?_=' + Date.now());
         const data = await res.json();
 
-        // Heure de mise à jour en heure de Paris
         const updatedAt = new Date(data.updated_at);
         document.getElementById('updated').textContent =
           'Mis à jour ' + updatedAt.toLocaleTimeString('fr-FR', {
@@ -110,24 +211,15 @@
           return;
         }
 
-        // Convertir l'heure UTC stockée en heure Paris
-        container.innerHTML = data.departures.slice(0, 3).map(d => {
-          // d.time est au format HH:MM en UTC — reconvertir en Paris
-          const today = new Date().toISOString().slice(0, 10);
-          const dtUTC = new Date(today + 'T' + d.time + ':00Z');
-          const timeParis = dtUTC.toLocaleTimeString('fr-FR', {
-            hour: '2-digit', minute: '2-digit', timeZone: 'Europe/Paris'
-          });
-          return `
-            <div class="departure-row">
-              <div class="dep-destination">Pont de Bezons</div>
-              <div class="dep-time">${timeParis}</div>
-              <div class="dep-minutes">
-                <span class="dep-minutes-num ${d.minutes <= 2 ? 'urgent' : ''}">${d.minutes}</span>
-                <span class="dep-minutes-unit">min</span>
-              </div>
-            </div>`;
-        }).join('');
+        container.innerHTML = data.departures.slice(0, 3).map(d => `
+          <div class="departure-row">
+            <div class="dep-destination">Pont de Bezons</div>
+            <div class="dep-time">${d.time}</div>
+            <div class="dep-minutes">
+              <span class="dep-minutes-num ${d.minutes <= 2 ? 'urgent' : ''}">${d.minutes}</span>
+              <span class="dep-minutes-unit">min</span>
+            </div>
+          </div>`).join('');
 
       } catch (e) {
         document.getElementById('departures').innerHTML =
