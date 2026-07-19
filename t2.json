@@ -1,13 +1,13 @@
 {
-  "updated_at": "2026-07-19T12:15:41Z",
+  "updated_at": "2026-07-19T12:20:38Z",
   "departures": [
     {
-      "time": "14:15",
-      "minutes": 0
+      "time": "14:30",
+      "minutes": 9
     },
     {
-      "time": "14:30",
-      "minutes": 14
+      "time": "14:45",
+      "minutes": 24
     }
   ]
 }
